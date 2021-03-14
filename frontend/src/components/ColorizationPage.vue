@@ -1,20 +1,18 @@
 <template>
   <el-container>
     <el-header class="m-header">
-      <img src="../assets/logo.png" style="height: 75px; float: left; margin-left: 10px" />
+      <img
+        src="../assets/logo.png"
+        style="height: 75px; float: left; margin-left: 10px"
+      />
       <span style="float: right; margin-right: 20px">
-        <el-button
-          size="medium"
-          type="success"
-          :title="'You can only upload jpg/png files and no more than 1Mb.'"
-          plain
-          style="margin-right:5px"
+        <el-button size="medium" type="success" plain style="margin-right: 5px"
           >Start Coloring <i class="el-icon-video-play el-icon-video-right"></i
         ></el-button>
         <el-upload
           class="upload-demo inline-block"
           :show-file-list="false"
-          action="/"
+          action="/api/sketchProcess/"
           :before-upload="onBeforeUpload"
           :on-success="onSuccess"
         >
@@ -23,15 +21,11 @@
             type="primary"
             :title="'You can only upload jpg/png files and no more than 1Mb.'"
             plain
-            style="margin-right:5px"
-            >Upload <i class="el-icon-upload2 el-icon-right"></i
-          ></el-button>
+            style="margin-right: 5px"
+            >Upload <i class="el-icon-upload2 el-icon-right"></i>
+          </el-button>
         </el-upload>
-        <el-button
-          size="medium"
-          type="primary"
-          :title="'You can only upload jpg/png files and no more than 1Mb.'"
-          plain
+        <el-button size="medium" type="primary" plain
           >Download <i class="el-icon-download el-icon-video-right"></i
         ></el-button>
       </span>
@@ -147,7 +141,7 @@ export default {
       }
       return isIMAGE && isLt1M;
     },
-    onSuccess() {
+    onSuccess(res, file) {
       this.$message.success("Uploaded successfully!");
     },
   },
