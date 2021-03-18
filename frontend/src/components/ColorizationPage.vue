@@ -49,22 +49,22 @@
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-edit"></i>
-              <span slot="title"><strong>Colored Brush</strong></span>
+              <span slot="title" @click="handleChangeToolType(1)"><strong>Colored Brush</strong></span>
             </template>
-            <el-menu-item index="1-1">
+            <el-menu-item index="1-1" @click="handleChangeToolType(1)">
               <span class="demonstration" style="margin-right: 5px">Color</span>
               <el-color-picker
                 v-model="currentColor"
                 style="float: right; margin-right: 20px"
               ></el-color-picker>
             </el-menu-item>
-            <el-menu-item index="1-2">
+            <el-menu-item index="1-2" @click="handleChangeToolType(1)">
               <span class="demonstration">Size</span>
               <el-slider
                 v-model="brushSize"
-                :min="1"
-                :max="10"
-                :step="1"
+                :min="0.5"
+                :max="5"
+                :step="0.5"
                 style="width: 70px; float: right"
               ></el-slider>
             </el-menu-item>
@@ -73,16 +73,16 @@
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-remove-outline"></i>
-              <span slot="title"><strong>Eraser</strong></span>
+              <span slot="title" @click="handleChangeToolType(2)"><strong>Eraser</strong></span>
             </template>
-            <el-menu-item index="2-1">Clear All</el-menu-item>
-            <el-menu-item index="2-2">
+            <el-menu-item index="2-1" @click="handleChangeToolType(2);handleClearCanvas()">Clear All</el-menu-item>
+            <el-menu-item index="2-2" @click="handleChangeToolType(2)">
               <span class="demonstration">Size</span>
               <el-slider
                 v-model="eraserSize"
-                :min="1"
-                :max="10"
-                :step="1"
+                :min="5"
+                :max="50"
+                :step="5"
                 style="width: 70px; float: right"
               ></el-slider>
             </el-menu-item>
@@ -93,8 +93,8 @@
               <i class="el-icon-setting"></i>
               <span slot="title"><strong>Control</strong></span>
             </template>
-            <el-menu-item index="3-1">Previous Step</el-menu-item>
-            <el-menu-item index="3-2">Next Step</el-menu-item>
+            <el-menu-item index="3-1" @click="handlePrev()">Previous Step</el-menu-item>
+            <el-menu-item index="3-2" @click="handleNext()">Next Step</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -102,9 +102,9 @@
       <el-main>
         <el-card shadow="hover">
           <div class="board">
-            <canvas id="ctx_front"></canvas>
-            <canvas id="ctx_base"></canvas>
-            <canvas id="ctx_back"></canvas>
+            <canvas id="ctx_front" ref="ctx_front"></canvas>
+            <canvas id="ctx_base" ref="ctx_base"></canvas>
+            <canvas id="ctx_back" ref="ctx_back"></canvas>
           </div>
         </el-card>
 
@@ -121,11 +121,12 @@ export default {
   name: "ColorizationPage",
   data() {
     return {
+      activeTool: 1,
       isCollapse: false,
       fileList: [],
       currentColor: "#409EFF",
-      brushSize: 3,
-      eraserSize: 3,
+      brushSize: 2.5,
+      eraserSize: 25,
       background: null,
       canvasStore: null,
       prevDis: true,
@@ -164,6 +165,13 @@ export default {
     },
     // Download the image
     handleCanvas2Img() {
+      var canvas = document.getElementById("ctx_back");
+      var img = canvas.toDataURL("image/png");
+      var a = document.createElement('a');
+      var event = new MouseEvent('click');
+      a.download = 'image';
+      a.href = img;
+      a.dispatchEvent(event);
     },
     // Initialize the canvas
     handleInitCanvas() {
@@ -188,7 +196,7 @@ export default {
       this.ctx_base = this.canvas_base.getContext("2d");
       this.ctx_front = this.canvas_front.getContext("2d");
       this.ctx_back = this.canvas_back.getContext("2d");
-      this.ctx_front.strokeStyle = this.currentColor;
+      // this.ctx_front.strokeStyle = this.currentColor;
       let img = new Image();
       img.src = this.background;
       let _this = this;
@@ -208,6 +216,179 @@ export default {
         _this.ctx_base.drawImage(this, 0, 0, width, height);
       };
     },
+    // Draw
+    handleDrawCanvas(type) {
+      this.canDraw = false;
+      let sx, sy, mx, my;
+      //鼠标按下
+      let mousedown = (e) => {
+        this.ctx_front.strokeStyle = this.currentColor;
+        this.ctx_front.lineWidth = this.brushSize;
+        e = e || window.event;             // 兼容需要
+        sx = e.offsetX;
+        sy = e.offsetY;
+        const cbx = this.ctx_base.getImageData(
+          sx - this.eraserSize / 2,
+          sy - this.eraserSize / 2,
+          this.eraserSize,
+          this.eraserSize
+        );
+        console.log(cbx);
+        this.ctx_front.moveTo(sx, sy);
+        this.canDraw = true;
+        switch (type) {
+          case 1:
+            this.ctx_front.beginPath();
+            break;
+          case 2:
+            this.ctx_front.putImageData(
+              cbx,
+              e.offsetX - this.eraserSize / 2,
+              e.offsetY - this.eraserSize / 2
+            );
+            break;
+        }
+      };
+      let mousemove = (e) => {
+        e = e || window.event;
+        mx = e.offsetX;
+        my = e.offsetY;
+        const cbx = this.ctx_base.getImageData(
+          e.offsetX,
+          e.offsetY,
+          this.eraserSize,
+          this.eraserSize
+        );
+        if (this.canDraw) {
+          switch (type) {
+            case 1:
+              this.ctx_front.lineTo(mx, my);
+              this.ctx_front.stroke();
+              break;
+            case 2:
+              this.ctx_front.putImageData(
+                cbx,
+                e.offsetX,
+                e.offsetY
+              );
+              break;
+          }
+        }
+      };
+      let mouseup = () => {
+        if (this.canDraw) {
+          this.canDraw = false;
+          this.ctx_front.closePath();
+          console.log('Store');
+          this.handleSaveCanvasStore();
+        }
+      };
+      this.canvas_front.onmousedown = (e) => mousedown(e);
+      this.canvas_front.onmousemove = (e) => mousemove(e);
+      this.canvas_front.onmouseup = (e) => mouseup(e);
+      this.canvas_front.onmouseout = (e) => mouseup(e);
+      this.canvas_front.onmouseleave = (e) => mouseup(e);
+    },
+    // Store
+    handleSaveCanvasStore() {
+      let url = this.canvas_front.toDataURL();
+      let image = new Image();
+      image.src = url;
+      image.onload = () => {
+        this.ctx_front.clearRect(
+          0,
+          0,
+          this.canvas_front.width,
+          this.canvas_front.height
+        );
+        this.ctx_front.drawImage(image, 0, 0, image.width, image.height);
+        this.ctx_back.drawImage(image, 0, 0, image.width, image.height);
+        const url2 = this.canvas_back.toDataURL();
+        this.currentImg.url = url2;
+        this.currentImg.index += 1;
+        this.canvasStore.push(url2);
+        this.prevDis = false;
+        // console.log(this.canvasStore);
+      };
+    },
+    /** 工具切换*/
+    handleChangeToolType(type) {
+      console.log(type);
+      this.activeTool = type;
+      this.handleDrawCanvas(type);
+    },
+    /** 上一步*/
+    handlePrev() {
+      if (this.currentImg.index > 0) {
+        this.nextDis = false;
+        this.currentImg.index -= 1;
+        this.currentImg.index==0?this.prevDis = true:this.prevDis = false
+        this.currentImg.url = this.canvasStore[this.currentImg.index];
+        this.currentImg.scale = 1;
+        this.handleDrawImage();
+      } else {
+        this.prevDis = true;
+      }
+    },
+    /** 下一步*/
+    handleNext() {
+      if (this.currentImg.index<this.canvasStore.length-1) {
+        this.prevDis = false;
+        this.currentImg.index += 1;
+        this.currentImg.index==this.canvasStore.length-1?this.nextDis = true:this.nextDis = false
+        this.currentImg.url = this.canvasStore[this.currentImg.index];
+        this.currentImg.scale = 1;
+        this.handleDrawImage();
+      } else {
+        this.nextDis = true;
+      }
+    },
+    handleDrawImage() {
+      let _this = this;
+      let img = new Image();
+      let baseImg = new Image();
+      img.src = this.currentImg.url;
+      baseImg.src = this.background;
+      _this.currentImg.width = _this.currentImg.width;
+      _this.currentImg.height = _this.currentImg.height;
+      img.onload = function() {
+        _this.canvas_front.width = _this.currentImg.width;
+        _this.canvas_front.height = _this.currentImg.height;
+        _this.canvas_back.width = _this.currentImg.width;
+        _this.canvas_back.height = _this.currentImg.height;
+        _this.ctx_front.drawImage(
+          this,
+          0,
+          0,
+          _this.currentImg.width,
+          _this.currentImg.height
+        );
+        _this.ctx_back.drawImage(
+          this,
+          0,
+          0,
+          _this.currentImg.width,
+          _this.currentImg.height
+        );
+      };
+      baseImg.onload = () => {
+        _this.canvas_base.width = _this.currentImg.width;
+        _this.canvas_base.height = _this.currentImg.height;
+        _this.ctx_base.drawImage(
+          baseImg,
+          0,
+          0,
+          _this.currentImg.width,
+          _this.currentImg.height
+        );
+      };
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.handleInitCanvas();
+      this.handleChangeToolType(1);
+    });
   },
 };
 </script>
@@ -253,8 +434,8 @@ body > .el-container {
 }
 
 canvas {
-  width: 30em;
-  height: 30em;
+  width: 512px;
+  height: 512px;
   position: absolute;
   margin: 0 auto;
   left: 0;
@@ -274,8 +455,8 @@ canvas {
 }
 
 .el-card {
-  width: 33em;
-  height: 33em;
+  width: 555px;
+  height: 555px;
   margin-left: 3em;
   float: left;
 }
