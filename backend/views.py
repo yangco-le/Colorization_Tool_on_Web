@@ -70,3 +70,56 @@ def sketchProcess(request):
         data = base64.b64encode(data).decode()
 
     return HttpResponse(data, content_type='image/png')
+
+
+def colorization(request):
+    '''
+    Get the sketch and convert it to colored image, then return.
+    :param request: include the sketch
+    :return: the image generated according to the original sketch
+    '''
+    if request.method == 'POST':
+        # Read the hint and save it to lacal
+        file = request.POST.get('hint')
+        data = file.split(",")[-1]
+        data = base64.b64decode(data)
+        path = "./backend/utils/imgDir/"
+        img_name = "hint.png"
+        img_dir = path + img_name
+        with open(img_dir, 'wb') as f:
+            f.write(data)
+
+        # Initialize config
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        with torch.no_grad():
+            netS2C = models.Colorizenet(input_nc=4,
+                                        output_nc=3,
+                                        norm='IN',
+                                        SN=True,
+                                        activation='relu',
+                                        residual=True,
+                                        ckpt_path='./backend/utils/checkpoint/sketch2color.pth').to(device)
+            netS2C.eval()
+
+        # Iamge process
+        hint = cv2.imread(path + 'hint.png', cv2.IMREAD_COLOR)
+        hint = cv2.cvtColor(hint, cv2.COLOR_BGR2RGB)
+        sketch = cv2.imread(path + 'sketch.png', cv2.IMREAD_GRAYSCALE).reshape(512, 512, 1)
+        input_array = np.concatenate([sketch, hint], axis=2)
+        with torch.no_grad():
+            result = process.ForwardNet(input_array, netS2C, device)
+        result = result * 255
+        result = result.astype(np.uint8)
+
+        # Save result
+        result_dir = path + "result.png"
+        result = Image.fromarray(result)
+        result.save(result_dir)
+
+        # Generate stream
+        stream = BytesIO()
+        result.save(stream, "png")
+        data = stream.getvalue()
+        data = base64.b64encode(data).decode()
+
+    return HttpResponse(data, content_type='image/png')

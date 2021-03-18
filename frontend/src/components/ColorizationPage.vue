@@ -6,9 +6,9 @@
         style="height: 75px; float: left; margin-left: 10px"
       />
       <span style="float: right; margin-right: 20px">
-        <el-button size="medium" type="success" plain style="margin-right: 5px"
-          >Start Coloring <i class="el-icon-video-play el-icon-video-right"></i
-        ></el-button>
+        <el-button size="medium" type="success" plain style="margin-right: 5px" @click="colorize"
+          >Start Coloring <i class="el-icon-video-play el-icon-video-right"></i>
+        </el-button>
         <el-upload
           class="upload-demo inline-block"
           :show-file-list="false"
@@ -109,7 +109,13 @@
         </el-card>
 
         <el-card shadow="hover">
-          <div class="board"></div>
+          <div class="board">
+            <el-image
+              style="width: 512px; height: 512px"
+              v-if="res_bg"
+              :src="res_bg"
+              :fit="fit"></el-image>
+          </div>
         </el-card>
       </el-main>
     </el-container>
@@ -117,6 +123,7 @@
 </template>
 
 <script>
+
 export default {
   name: "ColorizationPage",
   data() {
@@ -128,6 +135,7 @@ export default {
       brushSize: 2.5,
       eraserSize: 25,
       background: null,
+      res_bg: null,
       canvasStore: null,
       prevDis: true,
       nextDis: true,
@@ -159,18 +167,39 @@ export default {
       this.$message.success("Uploaded successfully!");
       this.handleInitCanvas();
     },
+    colorize() {
+      var canvas = document.getElementById("ctx_back");
+      var img = canvas.toDataURL("image/png");
+      let param = new FormData();
+      param.append('hint', img);
+      this.$axios.post('/api/colorization/', param).then( res=>{
+        this.res_bg = "data:image/png;base64," + res.data;
+        // let img = new Image();
+        // img.src = this.res_bg;
+        // let _this = this;
+        // this.canvas_res = document.getElementById("ctx_res");
+        // this.ctx_res = this.canvas_res.getContext("2d");
+        // img.onload = function () {
+        //   // let width = parseInt(this.width);
+        //   // let height = parseInt(this.height);
+        //   let width = 100;
+        //   let height = 100;
+        //   _this.ctx_res.width = width;
+        //   _this.ctx_res.height = height;
+        //   _this.ctx_res.drawImage(this, 0, 0, width, height);
+        // };
+      })
+    },
     // Clear the canvas
     handleClearCanvas() {
       this.handleInitCanvas();
     },
     // Download the image
     handleCanvas2Img() {
-      var canvas = document.getElementById("ctx_back");
-      var img = canvas.toDataURL("image/png");
       var a = document.createElement('a');
       var event = new MouseEvent('click');
       a.download = 'image';
-      a.href = img;
+      a.href = this.res_bg;
       a.dispatchEvent(event);
     },
     // Initialize the canvas
@@ -233,7 +262,6 @@ export default {
           this.eraserSize,
           this.eraserSize
         );
-        console.log(cbx);
         this.ctx_front.moveTo(sx, sy);
         this.canDraw = true;
         switch (type) {
@@ -279,7 +307,6 @@ export default {
         if (this.canDraw) {
           this.canDraw = false;
           this.ctx_front.closePath();
-          console.log('Store');
           this.handleSaveCanvasStore();
         }
       };
