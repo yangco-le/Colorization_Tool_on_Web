@@ -1,18 +1,10 @@
 <div align=center><img src="frontend/src/assets/logo.png" alt="logo" width="500"/></div>
 
-# Colorization Tool on Web
+# Anime-Paintbrush
 
-A web-based animation coloring tool, capable of reconstructing sketches into colored images in real time. This project is developed with `javascript`, `python`, `css`, etc. The front-end development of this project uses `Vue` with `Element-ui` , with the back-end development using `Django`.
+A web-based animation coloring tool, capable of reconstructing sketches into colored images in real time. The uploaded sketch would be preprocessed and some hints about color are needed to provide color information, two parts combining to be put into input. The rendered colorized anime characters will be the output. 
 
-This repository contains:
-
-1. [The specification](spec.md) for how a standard README should look.
-2. A link to [a linter](https://github.com/RichardLitt/standard-readme-preset) you can use to keep your README maintained ([work in progress](https://github.com/RichardLitt/standard-readme/issues/5)).
-3. A link to [a generator](https://github.com/RichardLitt/generator-standard-readme) you can use to create standard READMEs.
-4. [A badge](#badge) to point to this spec.
-5. [Examples of standard READMEs](example-readmes/) - such as this file you are reading.
-
-Standard Readme is designed for open source libraries. Although it’s [historically](#background) made for Node and npm projects, it also applies to libraries in other languages and package managers.
+This project is developed with `javascript`, `python`, `css`, etc. The front-end development of this project uses `Vue` with `Element-ui` , with the back-end development using `Django`.
 
 
 ## Table of Contents
@@ -30,33 +22,25 @@ Standard Readme is designed for open source libraries. Although it’s [historic
 
 ## Background
 
-Standard Readme started with the issue originally posed by [@maxogden](https://github.com/maxogden) over at [feross/standard](https://github.com/feross/standard) in [this issue](https://github.com/feross/standard/issues/141), about whether or not a tool to standardize readmes would be useful. A lot of that discussion ended up in [zcei's standard-readme](https://github.com/zcei/standard-readme/issues/1) repository. While working on maintaining the [IPFS](https://github.com/ipfs) repositories, I needed a way to standardize Readmes across that organization. This specification started as a result of that.
+As a painting enthusiast, I have tried different ways of painting, such as pen sketching, oil painting, watercolor, etc. The most convenient one is pen sketching, where the basic concern is to outline the object. However, for human perception and the situation where the most applications are currently put, color is essential for drawing.
 
-> Your documentation is complete when someone can use your module without ever
-> having to look at its code. This is very important. This makes it possible for
-> you to separate your module's documented interface from its internal
-> implementation (guts). This is good because it means that you are free to
-> change the module's internals as long as the interface remains the same.
-
-> Remember: the documentation, not the code, defines what a module does.
-
-~ [Ken Williams, Perl Hackers](http://mathforum.org/ken/perl_modules.html#document)
-
-Writing READMEs is way too hard, and keeping them maintained is difficult. By offloading this process - making writing easier, making editing easier, making it clear whether or not an edit is up to spec or not - you can spend less time worrying about whether or not your initial documentation is good, and spend more time writing and using code.
-
-By having a standard, users can spend less time searching for the information they want. They can also build tools to gather search terms from descriptions, to automatically run example code, to check licensing, and so on.
+Thus it is meaningful to design a tool that would **automatically assist in generating high quality images by simply entering a sketch with a little color cue**. By learning through generative adversarial networks (GAN), neural networks can learn pretty good drawing skills. This project deploys the trained neural network on the back-end, while the front-end is deployed on a web application, and a user-friendly interface is designed so that users can complete the color rendering of sketches and download them through simple operations on the web page.
 
 The goals for this repository are:
 
-1. A well defined **specification**. This can be found in the [Spec document](spec.md). It is a constant work in progress; please open issues to discuss changes.
-2. **An example README**. This Readme is fully standard-readme compliant, and there are more examples in the `example-readmes` folder.
-3. A **linter** that can be used to look at errors in a given Readme. Please refer to the [tracking issue](https://github.com/RichardLitt/standard-readme/issues/5).
-4. A **generator** that can be used to quickly scaffold out new READMEs. See [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme).
-5. A **compliant badge** for users. See [the badge](#badge).
+1. Provide efficient coloring tools for drawing practitioners to improve drawing efficiency.
+2. Provide non-professionals with the opportunity to draw high-quality manga characters at a low learning cost.
+3. Provide a reference for programmers since all the code has  been open sourced.
 
 ## Install
 
-This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
+The back-end is developed with `python3.7`. Make sure you have an available environment. In your environment, install the required packages.
+
+```sh
+pip install -r requirements.txt
+```
+
+This project uses [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
 
 ```sh
 $ npm install --global standard-readme-spec
