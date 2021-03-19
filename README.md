@@ -62,25 +62,23 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 Demo 1:
 
-<div><img src="Examples/1result.png" width=750></div>
+<div><img src="Examples/1sketch.png" width=250>&nbsp;<img src="Examples/1hint.png" width=250>&nbsp;<img src="Examples/1result.png" width=250></div>
 <p>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
-
-
-![1screen](Examples/1screen.png)
+<div><img src="Examples/1screen.png" width=750></div>
 
 Demo 2:
 <div><img src="Examples/2sketch.png" width=250>&nbsp;<img src="Examples/2hint.png" width=250>&nbsp;<img src="Examples/2result.png" width=250></div>
 <p>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
 
 
 
-<div><img src="Examples/2result.png" width=750></div>
+<div><img src="Examples/2screen.png" width=750></div>
 
 
 
