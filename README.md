@@ -2,7 +2,7 @@
 
 # Anime-Paintbrush
 
-A web-based animation coloring tool, capable of reconstructing sketches into colored images in real time. The uploaded sketch would be preprocessed and some hints about color are needed to provide color information, two parts combining to be put into input. The rendered colorized anime characters will be the output. 
+A web-based animation coloring tool, capable of reconstructing sketches into colored images. The uploaded sketch would be preprocessed and some hints about color are needed to provide color information, two parts combining to be put into input. The rendered colorized anime characters will be the output. 
 
 This project is developed with `javascript`, `python`, `css`, etc. The front-end development of this project uses `Vue` with `Element-ui` , with the back-end development using `Django`.
 
