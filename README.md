@@ -87,7 +87,7 @@ Interface:
 
 ## Contributor and Maintainer
 
-[@yangco-le](https://github.com/yangco-le).
+[@yangco-le](https://github.com/yangco-le)
 
 
 ## License
