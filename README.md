@@ -67,7 +67,7 @@ Demo 1:
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
-<div><img src="Examples/1screen.png" width=750></div>
+<div><img src="Examples/1screen.png" width=800></div>
 
 Demo 2:
 <div><img src="Examples/2sketch.png" width=250>&nbsp;<img src="Examples/2hint.png" width=250>&nbsp;<img src="Examples/2result.png" width=250></div>
@@ -78,7 +78,7 @@ Demo 2:
 
 
 
-<div><img src="Examples/2screen.png" width=750></div>
+<div><img src="Examples/2screen.png" width=800></div>
 
 
 
