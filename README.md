@@ -64,11 +64,11 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 Demo 1:
 
-![1sketch](D:\Desktop\Colorization_Tool_on_Web\Examples\1sketch.png)
+![1sketch](Examples/1sketch.png)
 
-![1hint](D:\Desktop\Colorization_Tool_on_Web\Examples\1hint.png)
+![1hint](Examples/1hint.png)
 
-![1result](D:\Desktop\Colorization_Tool_on_Web\Examples\1result.png)
+![1result](Examples/1result.png)
 
 ![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\1screen.png)
 
