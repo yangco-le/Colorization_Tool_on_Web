@@ -67,6 +67,7 @@ Demo 1:
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
+Interface:
 <div><img src="Examples/1screen.png" width=800></div>
 
 Demo 2:
@@ -75,9 +76,7 @@ Demo 2:
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
-
-
-
+Interface:
 <div><img src="Examples/2screen.png" width=800></div>
 
 
