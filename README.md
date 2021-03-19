@@ -64,13 +64,21 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 Demo 1:
 
-![1sketch](Examples/1sketch.png)
-
-![1hint](Examples/1hint.png)
-
-![1result](Examples/1result.png)
+<div><img src="Examples/1sketch.png" width=300>&nbsp;<img src="Examples/1hint.png" width=300>&nbsp;<img src="Examples/1result.png" width=300></div>
+<pre>
+    &#9&#9Sketch &#9&#9&#9&#9&#9&#9&nbsp;&nbsp; Hint &#9&#9&#9&#9&#9&#9&nbsp;&nbsp;&nbsp; Example
+</pre>
 
 ![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\1screen.png)
+
+<div><img src="Examples/2sketch.png" width=300>&nbsp;<img src="Examples/2hint.png" width=300>&nbsp;<img src="Examples/2result.png" width=300></div>
+<pre>
+    &#9&#9Sketch &#9&#9&#9&#9&#9&#9&nbsp;&nbsp; Hint &#9&#9&#9&#9&#9&#9&nbsp;&nbsp;&nbsp; Example
+</pre>
+
+![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\2screen.png)
+
+
 
 ## Related Efforts
 
