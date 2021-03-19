@@ -12,7 +12,6 @@ This project is developed with `javascript`, `python`, `css`, etc. The front-end
 - [Background](#background)
 - [Install](#install)
 - [Usage](#usage)
-  - [Generator](#generator)
 - [Badge](#badge)
 - [Example Readmes](#example-readmes)
 - [Related Efforts](#related-efforts)
@@ -37,63 +36,50 @@ The goals for this repository are:
 The back-end is developed with `python3.7`. Make sure you have an available environment. In your environment, install the required packages.
 
 ```sh
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
-This project uses [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
+This project uses [npm](https://npmjs.com). Go check them out if you don't have them locally installed. Then execute the following commands.
 
 ```sh
-$ npm install --global standard-readme-spec
+$ cd frontend
+$ npm install --save axios
+$ npm install -g @vue/cli
+$ npm install
+$ npm run build
 ```
 
 ## Usage
 
-This is only a documentation package. You can print out [spec.md](spec.md) to your console:
+Enter the home directory and execute the following commands.
 
 ```sh
-$ standard-readme-spec
-# Prints out the standard-readme spec
+$ cd Colorization_Tool_on_Web
+$ python manage.py runserver
 ```
 
-### Generator
+At this point, you can already access the page at http://127.0.0.1:8000.
 
-To use the generator, look at [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme). There is a global executable to run the generator in that package, aliased as `standard-readme`.
+## Demonstration
 
-## Badge
+Demo 1:
 
-If your README is compliant with Standard-Readme and you're on GitHub, it would be great if you could add the badge. This allows people to link back to this Spec, and helps adoption of the README. The badge is **not required**.
+![1sketch](D:\Desktop\Colorization_Tool_on_Web\Examples\1sketch.png)
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+![1hint](D:\Desktop\Colorization_Tool_on_Web\Examples\1hint.png)
 
-To add in Markdown format, use this code:
+![1result](D:\Desktop\Colorization_Tool_on_Web\Examples\1result.png)
 
-```
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-```
-
-## Example Readmes
-
-To see how the specification has been applied, see the [example-readmes](example-readmes/).
+![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\1screen.png)
 
 ## Related Efforts
 
 - [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
 - [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
 
-## Maintainers
+## Contributor and Maintainer
 
-[@RichardLitt](https://github.com/RichardLitt).
-
-## Contributing
-
-Feel free to dive in! [Open an issue](https://github.com/RichardLitt/standard-readme/issues/new) or submit PRs.
-
-Standard Readme follows the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) Code of Conduct.
-
-### Contributors
-
-This project exists thanks to all the people who contribute. 
-<a href="https://github.com/RichardLitt/standard-readme/graphs/contributors"><img src="https://opencollective.com/standard-readme/contributors.svg?width=890&button=false" /></a>
+[@yangco-le](https://github.com/yangco-le).
 
 
 ## License
