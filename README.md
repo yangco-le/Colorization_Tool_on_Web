@@ -64,26 +64,27 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 Demo 1:
 
-<div><img src="Examples/1sketch.png" width=300>&nbsp;<img src="Examples/1hint.png" width=300>&nbsp;<img src="Examples/1result.png" width=300></div>
+<div><img src="Examples/1sketch.png" width=200>&nbsp;<img src="Examples/1hint.png" width=200>&nbsp;<img src="Examples/1result.png" width=200></div>
 <pre>
-    &#9&#9Sketch &#9&#9&#9&#9&#9&#9&nbsp;&nbsp; Hint &#9&#9&#9&#9&#9&#9&nbsp;&nbsp;&nbsp; Example
+    &nbsp;&nbsp;&nbsp;Sketch &#9&#9&#9&#9 Hint &#9&#9&#9&#9 Example
 </pre>
 
-![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\1screen.png)
 
-<div><img src="Examples/2sketch.png" width=300>&nbsp;<img src="Examples/2hint.png" width=300>&nbsp;<img src="Examples/2result.png" width=300></div>
+![1screen](Examples/1screen.png)
+
+<div><img src="Examples/2sketch.png" width=200>&nbsp;<img src="Examples/2hint.png" width=200>&nbsp;<img src="Examples/2result.png" width=200></div>
 <pre>
-    &#9&#9Sketch &#9&#9&#9&#9&#9&#9&nbsp;&nbsp; Hint &#9&#9&#9&#9&#9&#9&nbsp;&nbsp;&nbsp; Example
+    &nbsp;&nbsp;&nbsp;Sketch &#9&#9&#9&#9 Hint &#9&#9&#9&#9 Example
 </pre>
 
-![1screen](D:\Desktop\Colorization_Tool_on_Web\Examples\2screen.png)
+
+![1screen](Examples/2screen.png)
 
 
 
 ## Related Efforts
 
-- [Art of Readme](https://github.com/noffle/art-of-readme) - 💌 Learn the art of writing quality READMEs.
-- [open-source-template](https://github.com/davidbgk/open-source-template/) - A README template to encourage open-source contributions.
+- [Anime-Colorization-Machine](https://github.com/delta6189/Anime-Colorization-Machine) - The checkpoints of the model come from this repo.
 
 ## Contributor and Maintainer
 
