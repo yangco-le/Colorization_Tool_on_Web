@@ -1,4 +1,4 @@
-<div align=center><img src="frontend/src/assets/logo.png" alt="logo" width="600"/></div>
+<div align=left><img src="frontend/src/assets/logo.png" alt="logo" width="600"/></div>
 
 # Colorization Tool on Web
 
