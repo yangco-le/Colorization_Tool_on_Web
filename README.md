@@ -64,7 +64,7 @@ Demo 1:
 
 <div><img src="Examples/1sketch.png" width=250>&nbsp;<img src="Examples/1hint.png" width=250>&nbsp;<img src="Examples/1result.png" width=250></div>
 <p>
-    &emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
+    &emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
 </p>
 
 
@@ -73,9 +73,9 @@ Demo 1:
 ![1screen](Examples/1screen.png)
 
 <div><img src="Examples/2sketch.png" width=250>&nbsp;<img src="Examples/2hint.png" width=250>&nbsp;<img src="Examples/2result.png" width=250></div>
-<pre>
-    &emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
-</pre>
+<p>
+    &emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
+</p>
 
 
 
