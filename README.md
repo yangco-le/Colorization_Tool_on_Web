@@ -1,4 +1,4 @@
-![logo](D:\Desktop\Colorization_Tool_on_Web\frontend\src\assets\logo.png)
+![logo](frontend/src/assets/logo.png)
 
 # Colorization Tool on Web
 
