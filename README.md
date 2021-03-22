@@ -2,7 +2,7 @@
 
 # Anime-Paintbrush
 
-A web-based animation coloring tool, capable of reconstructing sketches into colored images in real time. The uploaded sketch would be preprocessed and some hints about color are needed to provide color information, two parts combining to be put into input. The rendered colorized anime characters will be the output. 
+A web-based animation coloring tool, capable of reconstructing sketches into colored images. The uploaded sketch would be preprocessed and some hints about color are needed to provide color information, two parts combining to be put into input. The rendered colorized anime characters will be the output. 
 
 This project is developed with `javascript`, `python`, `css`, etc. The front-end development of this project uses `Vue` with `Element-ui` , with the back-end development using `Django`.
 
@@ -21,7 +21,7 @@ This project is developed with `javascript`, `python`, `css`, etc. The front-end
 
 As a painting enthusiast, I have tried different ways of painting, such as pen sketching, oil painting, watercolor, etc. The most convenient one is pen sketching, where the basic concern is to outline the object. However, for human perception and the situation where the most applications are currently put, color is essential for drawing.
 
-Thus it is meaningful to design a tool that would **automatically assist in generating high quality images by simply entering a sketch with a little color cue**. By learning through generative adversarial networks (GAN), neural networks can learn pretty good drawing skills. This project deploys the trained neural network on the back-end, while the front-end is deployed on a web application, and a user-friendly interface is designed so that users can complete the color rendering of sketches and download them through simple operations on the web page.
+Thus it is meaningful to design a tool that would **automatically assist in generating high quality images by simply inputing a sketch with a little color cue**. By learning through generative adversarial networks (GAN), neural networks can learn pretty good drawing skills. This project deploys the trained neural network on the back-end, while the front-end is deployed on a web application, and a user-friendly interface is designed so that users can complete the color rendering of sketches and download them through simple operations on the web page.
 
 The goals for this repository are:
 
@@ -64,23 +64,20 @@ Demo 1:
 
 <div><img src="Examples/1sketch.png" width=250>&nbsp;<img src="Examples/1hint.png" width=250>&nbsp;<img src="Examples/1result.png" width=250></div>
 <p>
-    &emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
 </p>
 
+Interface:
+<div><img src="Examples/1screen.png" width=800></div>
 
-
-
-![1screen](Examples/1screen.png)
-
+Demo 2:
 <div><img src="Examples/2sketch.png" width=250>&nbsp;<img src="Examples/2hint.png" width=250>&nbsp;<img src="Examples/2result.png" width=250></div>
-<pre>
-    &emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Example
-</pre>
+<p>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Sketch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Hint &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Result
+</p>
 
-
-
-
-![1screen](Examples/2screen.png)
+Interface:
+<div><img src="Examples/2screen.png" width=800></div>
 
 Screen Record:
 
@@ -92,7 +89,7 @@ Screen Record:
 
 ## Contributor and Maintainer
 
-[@yangco-le](https://github.com/yangco-le).
+[@yangco-le](https://github.com/yangco-le)
 
 
 ## License
