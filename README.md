@@ -82,7 +82,9 @@ Demo 1:
 
 ![1screen](Examples/2screen.png)
 
+Screen Record:
 
+![screenRecord](Examples/screenRecord.gif)
 
 ## Related Efforts
 
