@@ -81,7 +81,9 @@ Interface:
 
 Screen Record:
 
-![screenRecord](Examples/screenRecord.gif)
+<div><img src="Examples/screenRecord.gif" width=800></div>
+
+
 
 ## Related Efforts
 
