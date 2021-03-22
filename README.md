@@ -60,6 +60,10 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 ## Demonstration
 
+Screen Record:
+
+<div><img src="Examples/screenRecord.gif" width=800></div>
+
 Demo 1:
 
 <div><img src="Examples/1sketch.png" width=250>&nbsp;<img src="Examples/1hint.png" width=250>&nbsp;<img src="Examples/1result.png" width=250></div>
@@ -78,12 +82,6 @@ Demo 2:
 
 Interface:
 <div><img src="Examples/2screen.png" width=800></div>
-
-Screen Record:
-
-<div><img src="Examples/screenRecord.gif" width=800></div>
-
-
 
 ## Related Efforts
 
