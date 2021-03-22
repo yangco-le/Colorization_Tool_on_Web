@@ -60,7 +60,7 @@ At this point, you can already access the page at http://127.0.0.1:8000.
 
 ## Demonstration
 
-Screen Record:
+Screen Record(See the full video on https://www.bilibili.com/video/BV1nb4y1Q7HY):
 
 <div><img src="Examples/screenRecord.gif" width=800></div>
 
